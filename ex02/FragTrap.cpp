@@ -1,45 +1,36 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(void) : ClapTrap()
+FragTrap::FragTrap(void)
 {
-    std::cout << "FragTrap default constructor called for " << _name << std::endl;
-    _hitPoints = 100;
-    _energyPoints = 100;
-    _attackDamage = 30;
+    std::cout << "FragTrap from ClapTrap " << this->_name << " created with default constructor." << std::endl;
 }
 
-FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
+FragTrap::FragTrap(std::string const &name): ClapTrap(name)
 {
-    std::cout << "FragTrap parameterized constructor called for " << _name << std::endl;
-    _hitPoints = 100;
-    _energyPoints = 100;
-    _attackDamage = 30;
-}
-
-FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
-{
-    std::cout << "FragTrap copy constructor called for " << _name << std::endl;
-}
-
-FragTrap& FragTrap::operator=(const FragTrap& other)
-{
-    std::cout << "FragTrap assignment operator called for " << _name << std::endl;
-    if (this != &other)
-    {
-        _name = other._name;
-        _hitPoints = other._hitPoints;
-        _energyPoints = other._energyPoints;
-        _attackDamage = other._attackDamage;
-    }
-    return *this;
+    std::cout << "FragTrap from ClapTrap " << this->_name << " created." << std::endl;
 }
 
 FragTrap::~FragTrap(void)
 {
-    std::cout << "FragTrap destructor called for " << _name << std::endl;
+    std::cout << "FragTrap from ClapTrap " << this->_name << " destroyed." << std::endl;
 }
 
-void FragTrap::highFivesGuys(void)
+FragTrap::FragTrap(FragTrap const &copy): ClapTrap(copy)
 {
-    std::cout << "FragTrap " << _name << " requests a high five!" << std::endl;
+    std::cout << "FragTrap from ClapTrap " << this->_name << " copied." << std::endl;
+}
+
+FragTrap    &FragTrap::operator=(FragTrap const &copy)
+{
+    std::cout << "Assignment operator for FragTrap called." << std::endl;
+    ClapTrap::operator=(copy);
+    return (*this);
+}
+
+void    FragTrap::highFivesGuys(void)
+{
+    if (this->_hitPoints <= 0)
+        std::cout << "Cannot high five because: ClapTrap " << this->_name << " is dead." << std::endl;
+    else
+        std::cout << "FragTrap from ClapTrap " << this->_name << " says: \"HIGH FIVE EVERYONE! :)\"." << std::endl;
 }
