@@ -1,13 +1,34 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-	ClapTrap clap1("Clap1");
-	ClapTrap clap2("Clap2");
+	// Criar uma instância de ScavTrap
+    ScavTrap scavTrap("GateKeeper");
 
-	clap1.attack("Enemy1");
-	clap2.takeDamage(3);
-	clap1.beRepaired(2);
+    // Testar os métodos da classe ScavTrap
+    scavTrap.attack("Enemy1");
+    scavTrap.takeDamage(25);
+    scavTrap.takeDamage(25);
+    scavTrap.takeDamage(100);
+    scavTrap.beRepaired(10);
+    scavTrap.guardGate();
 
-	return 0;
+    // Testar os getters e setters da classe ScavTrap
+    std::cout << "Name: " << scavTrap.getName() << std::endl;
+    std::cout << "Hit Points: " << scavTrap.getHitPoints() << std::endl;
+    std::cout << "Energy Points: " << scavTrap.getEnergyPoints() << std::endl;
+    std::cout << "Attack Damage: " << scavTrap.getAttackDamage() << std::endl;
+
+    // Criar uma cópia de ScavTrap
+    ScavTrap scavCopy(scavTrap);
+    scavCopy.attack("Enemy2");
+    scavCopy.guardGate();
+
+    // Atribuir uma cópia a outra instância de ScavTrap
+    ScavTrap scavAssign;
+    scavAssign = scavTrap;
+    scavAssign.attack("Enemy3");
+    scavAssign.guardGate();
+
+    return 0;
 }

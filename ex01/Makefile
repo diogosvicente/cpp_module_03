@@ -1,17 +1,16 @@
-CC		= c++
+CXX		= c++
 RM		= rm -f
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRC		= ClapTrap.cpp ScavTrap.cpp main.cpp
-NAME	= sc
-avtrap
+NAME	= scavtrap
 
 OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+		$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 		$(RM) $(OBJ)
