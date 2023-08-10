@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                           :+:      :+:    :+:   */
+/*   colors.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dioda-si <dioda-si@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,31 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef COLORS_HPP
+# define COLORS_HPP
 
-# include <iostream>
-# include <string>
-
-class ClapTrap
-{
-private:
-	std::string _name;
-	int _hitPoints;
-	int _energyPoints;
-	int _attackDamage;
-public:
-	ClapTrap(void);
-	ClapTrap(const std::string& name);
-	ClapTrap(const ClapTrap& other);
-	ClapTrap& operator=(const ClapTrap& other);
-	~ClapTrap(void);
-
-	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-
-
-};
+# define RED	"\033[31m"
+# define ULINE	"\033[4m"
+# define RESET	"\033[0m"
+# define GREEN	"\033[32m"
+# define YELLOW	"\033[33m"
+# define BOLD	"\033[1m"
+# define ITALIC	"\033[3m"
 
 #endif
